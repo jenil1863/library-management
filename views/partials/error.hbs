@@ -1,0 +1,17 @@
+<body>
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-lg-10">
+        <div class="alert alert-warning text-center" role="alert">
+          {{#if invalidLoginId}}
+            <p><strong>ERROR!</strong>
+              Invalid Login Card Number. Please try again!</p>
+          {{/if}}
+          {{#if UserNotLogged}}
+            <p><strong>OOPS!</strong> You are not logged in!</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

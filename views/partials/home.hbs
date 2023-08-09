@@ -1,0 +1,39 @@
+<body>
+  <center>
+    <h2 style="padding-top: 50px;">Discover the Latest Must-Reads in Our Book
+      Library</h2></center>
+  <div class="row row-cols-1 row-cols-md-3 g-3" style="padding:90px ;">
+    {{#each books}}
+      <div class="col-md-3 g-4">
+        <div class="card h-100">
+          <img
+            src="{{this.image}}"
+            class="card-img-mid"
+            style="object-fit: cover;"
+            alt="{{this.title}}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.author}}</p>
+            {{#if this.borrowedBy}}
+              <a
+                tabindex="0"
+                class="btn btn-lg btn-secondary"
+                role="button"
+                data-bs-toggle="popover"
+                data-bs-trigger="focus"
+                data-bs-title="Sorry!"
+                data-bs-content="You cannot Borrow this book because it is already rented."
+              >On Loan</a>
+            {{else}}
+              <form method="POST" action="/borrow/{{this._id}}">
+                <button class="btn btn-primary">BORROW</button>
+              </form>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+</body>
